@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "@types/jquery": "^3.5.14",
     "express": "^4"
   },
   "devDependencies": {
@@ -55,5 +56,15 @@
     "app/allocation",
     "app/derivation",
     "app/modeltable"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "sqlite.db"
+        }
+      }
+    }
+  }
 }

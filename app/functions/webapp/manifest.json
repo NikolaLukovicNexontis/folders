@@ -77,6 +77,15 @@
                 "sap.fe.templates": {}
             }
         },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ListReport.ListReportController": {
+                        "controllerName": "functions.custom.ListReportExtController"
+                    }
+                }
+            }
+        },
         "contentDensities": {
             "compact": true,
             "cozy": true
@@ -88,6 +97,13 @@
                     "bundleName": "functions.i18n.i18n"
                 }
             },
+            "appModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {
+					"defaultBindingMode": "TwoWay"
+				},
+				"preload": true
+			},
             "": {
                 "dataSource": "mainService",
                 "preload": true,
@@ -128,7 +144,6 @@
                     "options": {
                         "settings": {
                             "entitySet": "Functions",
-                            "variantManagement": "Page",
                             "navigation": {
                                 "Functions": {
                                     "detail": {
@@ -140,11 +155,24 @@
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.LineItem": {
                                     "actions": {
-                                        "DataFieldForAction::FunctionService.deactivate": {
-                                            "enableOnSelect": "multi"
-                                        },
-                                        "DataFieldForAction::FunctionService.activate": {
-                                            "enableOnSelect": "multi"
+                                        "uploadID": {
+                                            "id": "uploadIDButton",
+                                            "text": "Upload",
+                                            "press": ".extension.functions.custom.ListReportExtController.onUpload",
+                                            "requiresSelection": false
+                                        }
+                                    }
+                                }
+                            },
+                            "content": {
+                                "header": {
+                                    "actions": {
+                                       
+                                        "userCountID": {
+                                            "id": "userCountIDButton",
+                                            "text": "User's online: 0",
+                                            "press": ".extension.functions.custom.ListReportExtController.onUserCount",
+                                            "requiresSelection": false
                                         }
                                     }
                                 }
@@ -167,7 +195,6 @@
                                             "template": "functions.custom.fragment.RTEFragment",
                                             "title": "RTE",
                                             "position": {
-                                                
                                                 "placement": "Before",
                                                 "anchor": "GeneratedFacet1"
                                             }

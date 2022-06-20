@@ -24,6 +24,7 @@ entity Functions {
         description   : String      @title      : 'Description';
         documentation : LargeString @title      : 'Documentation';
         sequence      : Integer;
+        userCount     : Integer;
         directory     : Association to one Directories;
         allocation    : Association to one Allocations;
         derivation    : Association to one Derivations;
@@ -34,6 +35,11 @@ type FileType @(assert.range) : String @title : 'Type' enum {
     Allocation = 'AL';
     Derivation = 'DE';
     ModelTable = 'MT';
+}
+
+entity Users {
+    key ID        : UUID @odata.Type : 'Edm.String'  @UI.Hidden;
+        userCount : Integer;
 }
 
 entity Allocations {
