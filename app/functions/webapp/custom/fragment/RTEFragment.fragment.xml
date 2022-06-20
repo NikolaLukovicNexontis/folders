@@ -8,7 +8,7 @@
                 showGroupLink="true" 
                 showGroupInsert="true"
                 showGroupClipboard="true"
-                value="{documentation}"
+                value=""
                 sanitizeValue="false"
                 editable="{= ${ui>/editMode} === 'Editable'}">
         </ui:RichTextEditor>
