@@ -72,10 +72,10 @@ sap.ui.define(["sap/ui/core/mvc/ControllerExtension", "sap/m/MessageToast","sap/
 
         },
         intervalService: function () {
-            var that = this;
-            this.intervalHandle = setInterval(function () {
-                that.getUserCount();
-            }, 5000);
+            // var that = this;
+            // this.intervalHandle = setInterval(function () {
+            //     that.getUserCount();
+            // }, 5000);
         },
         onUserCount: function() {
             if (!this.testPopover) {
